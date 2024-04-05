@@ -12,7 +12,7 @@ import pyttsx3
 openai.api_key = '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'
 limit = 5
 # %% Streamlit UI
-st.image("Logo_Cresme.png")
+st.image("https://www.harpaceas.it/hs-fs/hubfs/logo_cresme_60_compatto.png?width=1194&height=749&name=logo_cresme_60_compatto.png")
 st.write('http://www.cresme.it')
 st.header(':blue[Chat con Cresme]', divider='rainbow')
 
