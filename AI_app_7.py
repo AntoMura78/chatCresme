@@ -123,6 +123,7 @@ if st.session_state.messaggi_preparati:
                     st.success(msg)
                 else:
                     st.markdown(msg)
+                    text_to_speech(msg)        
 
 
 
