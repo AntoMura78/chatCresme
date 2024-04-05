@@ -9,7 +9,7 @@ import base64
 import pyttsx3
 
 # Initialize OpenAI API key
-openai.api_key = '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'
+openai.api_key = st.secrets["OPkey"]
 limit = 5
 # %% Streamlit UI
 st.image("https://www.harpaceas.it/hs-fs/hubfs/logo_cresme_60_compatto.png?width=1194&height=749&name=logo_cresme_60_compatto.png")
