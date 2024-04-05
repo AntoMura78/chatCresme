@@ -12,7 +12,7 @@ import pyttsx3
 openai.api_key = st.secrets["OPkey"]
 limit = 5
 # %% Streamlit UI
-st.image("https://www.harpaceas.it/hs-fs/hubfs/logo_cresme_60_compatto.png?width=1194&height=749&name=logo_cresme_60_compatto.png")
+st.image("https://www.harpaceas.it/hs-fs/hubfs/logo_cresme_60_compatto.png?width=1194&height=749&name=logo_cresme_60_compatto.png", width=200)
 st.write('http://www.cresme.it')
 st.header(':blue[Chat con Cresme]', divider='rainbow')
 
