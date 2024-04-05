@@ -123,8 +123,7 @@ if st.session_state.messaggi_preparati:
                     st.success(msg)
                 else:
                     st.markdown(msg)
-                    if st.button('Listen to the answer', key=c):
-            c += 1
+
 
 
 restanti = limit-st.session_state.contatore
