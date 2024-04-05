@@ -83,9 +83,7 @@ def immagine_a_base64(immagine):
 def text_to_speech(text):
     engine = pyttsx3.init()
     engine.say(text)
-    #engine.save_to_file(text, filename)
     engine.runAndWait()
-    #return filename
 
 
 # %% Catching the thread
@@ -127,7 +125,6 @@ if st.session_state.messaggi_preparati:
                     st.markdown(msg)
                     if st.button('Listen to the answer', key=c):
                         text_to_speech(msg)
-                        #st.audio(file, format='audio/mp3', start_time=0)
             c += 1
 
 
