@@ -124,7 +124,6 @@ if st.session_state.messaggi_preparati:
                 else:
                     st.markdown(msg)
                     if st.button('Listen to the answer', key=c):
-                        text_to_speech(msg)
             c += 1
 
 
