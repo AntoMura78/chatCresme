@@ -6,7 +6,7 @@ from datetime import timedelta
 from PIL import Image
 import io
 import base64
-import pyttsx3
+from io import BytesIO
 
 # Initialize OpenAI API key
 openai.api_key = st.secrets["OPkey"]
@@ -80,10 +80,19 @@ def immagine_a_base64(immagine):
     return f"data:image/png;base64,{encoded_img}"
 
 
-def text_to_speech(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+client = openai.Client(api_key=openai.api_key)
+
+
+def OpenaI_text_to_speech(text):
+    response = client.audio.speech.create(
+        model="tts-1",
+        voice="alloy",
+        input=text
+    )
+
+    # Crea un buffer di memoria
+    audio_buffer = BytesIO(response.content)
+    return audio_buffer
 
 
 # %% Catching the thread
@@ -111,20 +120,13 @@ if st.session_state.messaggi_preparati:
                 st.image(msg)
             else:
                 if msg.startswith('Domanda'):
-                    highlighted_text = f"""
-                    <style>
-                    .highlight {{
-                        background-color: #f0f0f0; /* Grigio */
-                    }}
-                    </style>
-                    <p class="highlight">{msg}</p>
-                    """
-                    # st.markdown(highlighted_text, unsafe_allow_html=True)
                     st.success(msg)
                 else:
                     st.markdown(msg)
-                    text_to_speech(msg)        
-
+                    if st.button('Listen to the answer', key=c):
+                        file = OpenaI_text_to_speech(msg)
+                        st.audio(file.getvalue(), format='audio/mp3')
+            c += 1
 
 
 restanti = limit-st.session_state.contatore
